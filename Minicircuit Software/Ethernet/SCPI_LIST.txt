@@ -1,0 +1,97 @@
+
+
+
+RCDAT SCPI List ( in latest firmware - can be send by Ethernet, USB or RS232 ):
+
+
+SETAtt:x or SETAtt=x - Set the attenuation relative to inserssion loss to value x in dB. x can be any legal value acording to model spec.
+ATT? -      Get the current attenuation in dB
+MN?     -   Get Model Name.
+SN?     -   Get Serial Number.
+Firmware? - Get the firmware version
+ADD? -      Get the device Address
+
+
+
+
+:STARTUPATT:INDICATOR:F  - Use fix Attenuation when power up          
+:STARTUPATT:VALUE:<value> - set the fix attenuation value in dB
+:STARTUPATT:INDICATOR:N  - Use the default maximum value when power up
+:STARTUPATT:INDICATOR:L  - Use Last Attenuation when power up
+:LASTATT:STORE:INITIATE - initiate the store of the last known attenuation
+
+:STARTUPATT:INDICATOR? - Get the "on power up" indicator
+:STARTUPATT:VALUE? Get the Fix Attenuation value for power up
+
+
+
+:SWEEP:START:<Value>     set the start sweep value in dB         /   :SWEEP:START?
+:SWEEP:STOP:<Value>      set the stop sweep value in dB          /    :SWEEP:STOP?
+:SWEEP:STEPSIZE:<Value>  set the step size sweep value in dB     /  :SWEEP:STEPSIZE?
+:SWEEP:DWELL_UNIT:u     - dwell in usec
+:SWEEP:DWELL_UNIT:m     - dwell in msec
+:SWEEP:DWELL_UNIT:s     - dwell in sec         / :SWEEP:DWELL_UNIT?
+:SWEEP:DWELL:<Value>  - dwell value        /:SWEEP:DWELL?
+:SWEEP:DIRECTION:x  - x=0 for start to stop direction; x=1 for stop to start direction; x=2 for both directions     /  :SWEEP:DIRECTION?
+:SWEEP:MODE:ON - start sweep 
+:SWEEP:MODE:OFF - stop sweep 
+
+
+:HOP:POINTS:<Value> - set Hop mode number of points     /  HOP:POINTS?
+:HOP:POINT:<Value> - set current point                 / HOP:POINT?
+:HOP:ATT:<Value> - set the attenuation of the current point for Hop mode    /  HOP:ATT?
+:HOP:DWELL_UNIT:u  - - dwell in usec
+:HOP:DWELL_UNIT:m     - dwell in msec
+:HOP:DWELL_UNIT:s     - dwell in sec                   / :HOP:DWELL_UNIT?
+:HOP:DWELL:<Value>  - dwell value             / HOP:DWELL?
+:HOP:DIRECTION:x  - x=0 for start to stop direction; x=1 for stop to start direction; x=2 for both directions    /  :HOP:DIRECTION?
+:HOP:MODE:ON - start HOP 
+:HOP:MODE:OFF - stop HOP 
+
+supported by 4 channels models:
+
+
+
+:CHAN:N:SetATT:X Set the CHAN-N attenuation relative to inserssion loss to value x in dB. x can be any legal value acording to model spec.
+
+Note: N can be any number between 1 to 4 and also a combination of all 4 channels
+examples:
+
+:CHAN:1:2:3:4:SetATT:22.5  - set all 4 channels with 22.5 dB
+:CHAN:3:4:SetATT:22.5  - set channels 3 and 4  with 22.5 dB
+
+:ATT? -      Get the current 4 channels attenuation in dB
+
+:CHAN:1:STARTUPATT:VALUE:<value> - set the fix Channel #1 attenuation value in dB    // CHAN:1:STARTUPATT:VALUE?
+:CHAN:2:STARTUPATT:VALUE:<value> - set the fix Channel #2 attenuation value in dB    // CHAN:2:STARTUPATT:VALUE?
+:CHAN:3:STARTUPATT:VALUE:<value> - set the fix Channel #3 attenuation value in dB    // CHAN:3:STARTUPATT:VALUE?
+:CHAN:4:STARTUPATT:VALUE:<value> - set the fix Channel #4 attenuation value in dB    // CHAN:4:STARTUPATT:VALUE?
+
+
+:SWEEP:CHAN:1:START:<Value>     set the Channel-1 start sweep value in dB         /   :SWEEP:CHAN1:START?   
+:SWEEP:CHAN:2:START:<Value>     set the Channel-2 start sweep value in dB         /   :SWEEP:CHAN2:START?
+:SWEEP:CHAN:3:START:<Value>     set the Channel-3 start sweep value in dB         /   :SWEEP:CHAN3:START?
+:SWEEP:CHAN:4:START:<Value>     set the Channel-4 start sweep value in dB         /   :SWEEP:CHAN4:START?
+
+:SWEEP:CHAN:1:STOP:<Value>     set the Channel-1 stop sweep value in dB         /   :SWEEP:CHAN1:STOP?   
+:SWEEP:CHAN:2:STOP:<Value>     set the Channel-2 stop sweep value in dB         /   :SWEEP:CHAN2:STOP?
+:SWEEP:CHAN:3:STOP:<Value>     set the Channel-3 stop sweep value in dB         /   :SWEEP:CHAN3:STOP?
+:SWEEP:CHAN:4:STOP:<Value>     set the Channel-4 stop sweep value in dB         /   :SWEEP:CHAN4:STOP?
+
+:SWEEP:CHAN:1:STEPSIZE:<Value>     set the Channel-1 step size sweep value in dB         /   :SWEEP:CHAN1:STEPSIZE?   
+:SWEEP:CHAN:2:STEPSIZE:<Value>     set the Channel-2 step size sweep value in dB         /   :SWEEP:CHAN2:STEPSIZE?
+:SWEEP:CHAN:3:STEPSIZE:<Value>     set the Channel-3 step size sweep value in dB         /   :SWEEP:CHAN3:STEPSIZE?
+:SWEEP:CHAN:4:STEPSIZE:<Value>     set the Channel-4 step size sweep value in dB         /   :SWEEP:CHAN4:STEPSIZE?
+
+:SWEEP:ACTIVECHANNELS:<Value>  set number that represent which channels need to set in the SWEEP mode: a combination of   1 (for CHAN1) + 2 (for CHAN2) + 4 (for CHAN3) + 8 (for CHAN4)  / :SWEEP:ACTIVECHANNELS?
+
+
+
+
+
+HOP:CHAN:1:ATT:<Value> - set the Channel-1 attenuation of the current point for Hop mode    /  HOP:CHAN1:ATT?
+HOP:CHAN:2:ATT:<Value> - set the Channel-2 attenuation of the current point for Hop mode    /  HOP:CHAN2:ATT?
+HOP:CHAN:3:ATT:<Value> - set the Channel-3 attenuation of the current point for Hop mode    /  HOP:CHAN3:ATT?
+HOP:CHAN:4:ATT:<Value> - set the Channel-4 attenuation of the current point for Hop mode    /  HOP:CHAN4:ATT?
+
+:HOP:ACTIVECHANNELS:<Value>  set number that represent which channels need to set in the HOP mode: a combination of   1 (for CHAN1) + 2 (for CHAN2) + 4 (for CHAN3) + 8 (for CHAN4)  / :HOP:ACTIVECHANNELS?
